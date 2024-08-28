@@ -7,8 +7,10 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "type": "module",
+  "description": "sample express server",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2"
   }
 }
