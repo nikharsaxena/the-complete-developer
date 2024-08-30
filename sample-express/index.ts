@@ -1,6 +1,8 @@
 import { routeHello, routeAPINames, routeWeather } from "./routes.js";
 import express, {type Request, type Response} from "express";
 
+import path from "node:path";
+
 const server = express();
 const port = 3000;
 
@@ -28,6 +30,12 @@ server.get(
         res.send(response);
     }
 );
+
+server.get('/components/weather', (_req: Request, res: Response): void => {
+    const filePath = path.join(process.cwd(), "public", "weather.html");
+    res.setHeader("Content-Type", "text/html");
+    res.sendFile(filePath);
+});
 
 server.listen(port, () => {
     console.log(`Listening on ${port}`);
